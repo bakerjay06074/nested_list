@@ -10,7 +10,7 @@ function onDeviceReady() {
 
 function gotFS(fileSystem) {
     alert('gotFS-->' + fileSystem.name + '<--');
-    fileSystem.root.getFile("readme.txt", null, gotFileEntry, fail);
+    fileSystem.root.getFile("readme.txt", {create: true, exclusive: false}, gotFileEntry, fail);
 }
 
 function gotFileEntry(fileEntry) {
