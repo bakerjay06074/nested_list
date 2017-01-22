@@ -5,43 +5,48 @@ function init() {
 function onDeviceReady() {
     alert('onDeviceReady')
 
-    window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, fail);
+  window.resolveLocalFileSystemURL(cordova.file.dataDirectory, function (dirEntry) {
+    alert('file system open: ' + dirEntry.name);
+    var isAppend = true;
+    createFile(dirEntry, "fileToAppend.txt", isAppend);
+  }, fail);
+
 }
 
-function gotFS(fileSystem) {
-    alert('gotFS-->' + fileSystem.name + '<--');
-    fileSystem.root.getFile("readme.txt", {create: true, exclusive: false}, gotFileEntry, fail);
+function createFile(dirEntry, fileName, isAppend) {
+    // Creates a new file or returns the file if it already exists. 
+    dirEntry.getFile(fileName, {create: true, exclusive: false}, function(fileEntry) {
+ 
+        writeFile(fileEntry, null, isAppend);
+ 
+    }, fail);
+ 
 }
 
-function gotFileEntry(fileEntry) {
-    alert('gotFileEntry')
-    fileEntry.file(gotFile, fail);
-}
-
-function gotFile(file) {
-    alert('gotFile')
-    readDataUrl(file);
-    readAsText(file);
-}
-
-function readDataUrl(file) {
-    alert('readDataUrl')
-    var reader = new FileReader();
-    reader.onloadend = function (evt) {
-        console.log("Read as data URL");
-        console.log(evt.target.result);
-    };
-    reader.readAsDataURL(file);
-}
-
-function readAsText(file) {
-    alert('readAsText')
-    var reader = new FileReader();
-    reader.onloadend = function (evt) {
-        console.log("Read as text");
-        console.log(evt.target.result);
-    };
-    reader.readAsText(file);
+function writeFile(fileEntry, dataObj, isAppend) {
+    // Create a FileWriter object for our FileEntry (log.txt). 
+    fileEntry.createWriter(function (fileWriter) {
+ 
+        fileWriter.onwriteend = function() {
+            alert.log("Successful file read...");
+            readFile(fileEntry);
+        };
+ 
+        fileWriter.onerror = function (e) {
+            alert.log("Failed file read: " + e.toString());
+        };
+ 
+        // If we are appending data to file, go to the end of the file. 
+        if (isAppend) {
+            try {
+                fileWriter.seek(fileWriter.length);
+            }
+            catch (e) {
+                alert("file doesn't exist!");
+            }
+        }
+        fileWriter.write(dataObj);
+    });
 }
 
 function fail(evt) {
