@@ -54,6 +54,20 @@ function writeFile(fileEntry, dataObj, isAppend) {
     });
 }
 
+function readFile(fileEntry) {
+ 
+    fileEntry.file(function (file) {
+        var reader = new FileReader();
+ 
+        reader.onloadend = function() {
+            alert("Successful file read: " + this.result);
+            displayFileData(fileEntry.fullPath + ": " + this.result);
+        };
+ 
+        reader.readAsText(file);
+ 
+    }, fail);
+}
 function fail(evt) {
     alert(evt.target.error.code);
 }
