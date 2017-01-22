@@ -7,7 +7,7 @@
 
 <!-- versionCode is optional and Android only -->
 
-  <name>File System Example</name>
+  <name>GPS Logger</name>
 
   <description>
       An example for using File System with PhoneGap.
