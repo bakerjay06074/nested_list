@@ -28,12 +28,12 @@ function writeFile(fileEntry, dataObj, isAppend) {
     fileEntry.createWriter(function (fileWriter) {
  
         fileWriter.onwriteend = function() {
-            alert.log("Successful file read...");
+            alert("Successful file read...");
             readFile(fileEntry);
         };
  
         fileWriter.onerror = function (e) {
-            alert.log("Failed file read: " + e.toString());
+            alert("Failed file read: " + e.toString());
         };
  
         // If we are appending data to file, go to the end of the file. 
@@ -45,6 +45,11 @@ function writeFile(fileEntry, dataObj, isAppend) {
                 alert("file doesn't exist!");
             }
         }
+      
+        if (!dataObj) {
+            dataObj = new Blob(['some file data'], { type: 'text/plain' });
+        }
+      
         fileWriter.write(dataObj);
     });
 }
