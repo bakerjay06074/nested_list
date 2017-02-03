@@ -1,10 +1,12 @@
+/*
 function init() {
   document.addEventListener("deviceready", onDeviceReady, false);
 }
 
 function onDeviceReady() {
     alert('onDeviceReady')
-
+*/
+function openFileSystem() {
   window.resolveLocalFileSystemURL(cordova.file.externalDataDirectory, function (dirEntry) {
     alert('file system open: ' + dirEntry.name);
     var isAppend = true;
