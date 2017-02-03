@@ -18,7 +18,7 @@ function onDeviceReady() {
 } 
 
 
-function msg() {
+function start_recording() {
     //window.alert("button pushed");
    
     /*
@@ -70,7 +70,7 @@ function geolocationError(error) {
 
 
 /*
-function stop_button_pushed() {
+function stop_recording() {
     isStopButtonPushed = true;
     navigator.geolocation.clearWatch(watchID);
 }
