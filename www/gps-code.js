@@ -9,6 +9,7 @@ function init() {
     // document.addEventListener("touchmove", preventBehavior, false);
     document.addEventListener("deviceready", onDeviceReady, false);
     //setInterval(function(){ alert("Hello, Jay"); }, 3000);
+    openFileSystem();
 }
 
 
@@ -59,6 +60,8 @@ var geolocationSuccess = function(position) {
     */
      document.getElementById("tbLongitude").value = position.coords.longitude;
      document.getElementById("tbLatitude").value = position.coords.latitude;
+    dataObj = new Blob([position.coords.timestamp.toString()], { type: 'text/plain'});
+    writeFile(fileEntry, dataObj, isAppend)
     window.alert('got a new position');
 };
  
