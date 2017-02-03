@@ -6,6 +6,8 @@ function init() {
 function onDeviceReady() {
     alert('onDeviceReady')
 */
+var fileEntry;
+
 function openFileSystem() {
   window.resolveLocalFileSystemURL(cordova.file.externalDataDirectory, function (dirEntry) {
     alert('file system open: ' + dirEntry.name);
@@ -19,7 +21,8 @@ function createFile(dirEntry, fileName, isAppend) {
     // Creates a new file or returns the file if it already exists. 
     dirEntry.getFile(fileName, {create: true, exclusive: false}, function(fileEntry) {
  
-        writeFile(fileEntry, null, isAppend);
+       // writeFile(fileEntry, null, isAppend);
+      alert("file entry is created");
  
     }, fail);
  
