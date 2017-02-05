@@ -1,6 +1,7 @@
 var isStopButtonPushed = false;
 var watchID;
 var timerID;
+var isAppend = true;
 
 
 function init() {
