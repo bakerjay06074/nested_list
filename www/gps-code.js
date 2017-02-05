@@ -60,7 +60,7 @@ var geolocationSuccess = function(position) {
     */
      document.getElementById("tbLongitude").value = position.coords.longitude;
      document.getElementById("tbLatitude").value = position.coords.latitude;
-    dataObj = new Blob([position.coords.timestamp.toString()], { type: 'text/plain'});
+    dataObj = new Blob([position.coords.timestamp], { type: 'text/plain'});
     writeFile(fileEntry, dataObj, isAppend)
     window.alert('got a new position');
 };
