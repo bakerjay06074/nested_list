@@ -4,6 +4,7 @@ var timerID;
 var isAppend = true;
 
 
+/*
 function init() {
     // the next line makes it impossible to see Contacts on the HTC Evo since it
     // doesn't have a scroll button
@@ -29,7 +30,6 @@ function start_recording() {
                                                   {mximumAge: 3600000,
                                                    timeout: 3000,
                                                    enableHighAccruacy:true}); 
-    */
      timerID = setInterval(function(){jayGetPosition()}, 30000);
 }
 
@@ -58,7 +58,7 @@ var geolocationSuccess = function(position) {
           'Heading: '           + position.coords.heading           + '\n' +
           'Speed: '             + position.coords.speed             + '\n' +
           'Timestamp: '         + position.timestamp                + '\n');
-    */
+  
      document.getElementById("tbLongitude").value = position.coords.longitude;
      document.getElementById("tbLatitude").value = position.coords.latitude;
     dataObj = new Blob([position.coords.timestamp], { type: 'text/plain'});
@@ -73,10 +73,10 @@ function geolocationError(error) {
 }
 
 
-/*
+*/
 function stop_recording() {
     isStopButtonPushed = true;
     navigator.geolocation.clearWatch(watchID);
 }
-*/  
+  
 
