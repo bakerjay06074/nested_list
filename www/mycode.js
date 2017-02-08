@@ -5,17 +5,18 @@ function init() {
 }
 
 function onDeviceReady() {
-    alert('onDeviceReady')
+  alert('onDeviceReady');
+  openFileSystem();
+}
 
-
-  function openFileSystem() {
-    window.resolveLocalFileSystemURL(cordova.file.externalDataDirectory, function (dirEntry) {
+function openFileSystem() {
+  window.resolveLocalFileSystemURL(cordova.file.externalDataDirectory, function (dirEntry) {
     alert('file system open: ' + dirEntry.name);
     var isAppend = true;
     createFile(dirEntry, "fileToAppend.txt", isAppend);
-    }, fail);
-  }
+  }, fail);
 }
+
 function createFile(dirEntry, fileName, isAppend) {
     // Creates a new file or returns the file if it already exists. 
     dirEntry.getFile(fileName, {create: true, exclusive: false}, function(fileEntry) {
