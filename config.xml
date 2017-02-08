@@ -13,7 +13,7 @@
       An example for using File System with PhoneGap.
   </description>
 <preference name="phonegap-version" value="cli-6.3.1" />
-    <preference name="AndroidPersistentFileLocation" value="Compatibility" />
+    <preference name="AndroidPersistentFileLocation" value="Internal" />
    <plugin name="cordova-plugin-file" spec="~4.3.1" />
    <plugin name="cordova-plugin-geolocation" spec="~2.4.1" />    
 </widget>
