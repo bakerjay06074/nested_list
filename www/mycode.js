@@ -1,4 +1,6 @@
 var fileEntry;
+var flt_a = 1.3;
+var flt_b = 5.7;
 
 function init() {
   document.addEventListener("deviceready", onDeviceReady, false);
@@ -52,7 +54,7 @@ function writeFile(fileEntry, dataObj, isAppend) {
         }
       
         if (!dataObj) {
-            dataObj = new Blob(['some file data'], { type: 'text/plain' });
+            dataObj = new Blob([flt_a, flt_b], { type: 'text/plain' });
         }
       
         fileWriter.write(dataObj);
