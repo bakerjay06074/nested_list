@@ -1,6 +1,7 @@
 var fileEntry;
 var flt_a = 1.3;
 var flt_b = 5.7;
+var csv_line = flt_a.toString() + "," + flt_b.toString() + "\n";
 
 function init() {
   document.addEventListener("deviceready", onDeviceReady, false);
@@ -23,7 +24,7 @@ function createFile(dirEntry, fileName, isAppend) {
     // Creates a new file or returns the file if it already exists. 
     dirEntry.getFile(fileName, {create: true, exclusive: false}, function(fileEntry) {
  
-      writeFile(fileEntry, null, isAppend);
+      writeFile(fileEntry, csv_line, isAppend);
       alert("file entry is created");
  
     }, fail);
