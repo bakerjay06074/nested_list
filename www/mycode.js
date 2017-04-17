@@ -71,11 +71,12 @@ function readFile(fileEntry) {
             alert("Successful file read: " + this.result);
             //displayFileData(fileEntry.fullPath + ": " + this.result);
 			
+			//this code is okay--assigns a string containing the file text to file_text
 			var file_text = this.result;
-			/*
-			index_of file_text.search("7");
-			alert("index of 7 is " + index_of);
-			*/
+			
+			index_of_search_result = file_text.search("7");
+			alert("index of 7 is " + index_of_search_result);
+			
         };
  
         reader.readAsText(file);
