@@ -69,7 +69,7 @@ function readFile(fileEntry) {
  
         reader.onloadend = function() {
             alert("Successful file read: " + this.result);
-            displayFileData(fileEntry.fullPath + ": " + this.result);
+            //displayFileData(fileEntry.fullPath + ": " + this.result);
 			
 			var file_text = this.result;
 			/*
