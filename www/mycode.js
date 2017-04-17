@@ -70,8 +70,9 @@ function readFile(fileEntry) {
         reader.onloadend = function() {
             alert("Successful file read: " + this.result);
             displayFileData(fileEntry.fullPath + ": " + this.result);
+			
+			var file_text = this.result;
 			/*
-			file_text = reader.result;
 			index_of file_text.search("7");
 			alert("index of 7 is " + index_of);
 			*/
