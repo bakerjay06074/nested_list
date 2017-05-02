@@ -3,24 +3,74 @@
 <html>
 
 <body>
-     <div class="app">
-        <h1>File System practice v7</h1>
-       
-     </div>
+    <div id="page_ride">
+		<!--These boxes were just for debugging
+		<input type="text" id="tbLongitude" value="Longitude"   />
+		<input type="text" id="tbLatitude" value="Latitude" />
+		<input type="text" id="tbTime" value ="Time" />
+		<input type="text" id="tbSpeed" value = "Speed" />
+		-->
+		
+		<!-- Power meter -->
+		<p class="numerical-display " id="dsplPower"> PWR: 000 W</p>
 
-    <!--  <script type="text/javascript" src="phonegap.js"></script>  -->
-    <script type="text/javascript" src="cordova.js"></script>	
-    <script type="text/javascript" src="mycode.js"></script>
-    <script type="text/javascript" src="gps-code.js"></script>
-                                         
-    <!-- <script type="text/javascript">
-        init();
-    </script>  -->
-     
-       <input type="button" value="Init" onclick="init()" />
-       <input type="button" value="Stop recording" onclick="stop_recording()" />
-       <input type="text" id="tbLongitude" value="Longitude"   />
-	  <input type="text" id="tbLatitude" value="Latitude" />
+		<!-- Speedometer -->
+		<p class="numerical-display " id="dsplSpeed"> SPD: 00.0 mph</p>
+
+		<!-- Odometer -->
+		<p class="numerical-display " id="dsplDist"> DST: 00.00 mi</p>
+
+		<!-- Stopwatch -->
+		<p class="numerical-display " id="dsplStopwatch"> TIME: 0:00:00</p>
+
+		<input type="button" class="button_jay " value="Record" onclick="start_recording()" />
+		<input type="button" class="button_jay " value="Pause" onclick="stop_recording()" />
+		<input type="button" class="button_jay " value="Save" onclick="save_ride()" />	
+	</div>
+	
+	<div id="page_about">
+		<h2>A Nested List</h2>
+
+		<ol>
+		  <li>Coffee</li>
+		  <li>Tea
+			<ul>
+			<li>Black tea</li>
+			<li>Green tea</li>
+			</ul>
+		  </li>
+		  <li>Milk</li>
+		</ol>
+		<p> hello </p>
+		<ol>
+			<li> first </li>
+			<li> second </li>
+		</ol>
+	</div>
+
+	<div id="page_summary">
+		<h> RIDE SUMMARY </h>
+		<p id="summary_report"> Insert summary text here </p>
+	</div>
+	
+	<div id="page_setup">
+		<h> SETUP </h>
+		<form>
+			Your weight:<br>
+			<input type="text" name="tbMyWeight"><br>
+			Bicycle weight:<br>
+			<input type="text" name="tbBikeWeight"><br>
+			CdA (use 0.5 if unsure):<br>
+			<input type="text" name="tbCdA"
+			<fieldset>
+			<legend> Units </legend>
+				<input type="radio" name="units" value="English" checked> English (miles, pounds)<br>
+				<input type="radio" name="units" value="Metric"> Metric (km, kg)
+			</fieldset>	<br>
+			<input type="submit" class="button_jay" 
+			value="Submit">
+		</form>
+	</div>
 
 </body>
 
